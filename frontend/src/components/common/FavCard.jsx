@@ -36,5 +36,6 @@ const FavCard = ({ favourite }) => {
         </div>
     );
 };
+// fave cared page
 
 export default FavCard;
