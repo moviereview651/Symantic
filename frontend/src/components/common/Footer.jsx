@@ -1,16 +1,12 @@
-import React from 'react';
-import Imglogo from '../../assets/img/synamatic-logo.png';
-const Footer = () => {
-    return (
-        <div>
-            <footer>
-                <div class="m20">
-                    <hr />
-                    <img src={Imglogo} alt="" />
-                </div>
-            </footer>
-        </div>
-    );
-};
+import React from 'react'
+import FooterLogo from "../../assets/img/logo-mobile.svg"
 
-export default Footer;
+const Footer = () => {
+  return (
+    <footer>
+      <div class="logo"><img src={FooterLogo} alt="" /></div>
+    </footer>
+  )
+}
+
+export default Footer

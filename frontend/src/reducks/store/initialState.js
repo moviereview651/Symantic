@@ -6,7 +6,9 @@ const initialState = {
         previous: null
     },
     favourites: {
-        list: []
+        list: [      
+           
+        ]
     },
     movies: {
         results: [],

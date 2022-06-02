@@ -1,440 +1,248 @@
-/*******************************************************
-COMMON
-*******************************************************/
-html body {
+* {
     padding: 0;
     margin: 0;
-    width: 100%;
-    color: rgb(224, 224, 224);
-    background-color: rgb(20, 20, 19);
-    font-family: Spartan;
+    font-family: 'Poppins';
 }
-a {
-    text-decoration: none;
-    color: white;
-}
-.row {
-    display: flex;
-}
-.spacer {
-    justify-content: space-between;
-}
-.space-evenly {
-    justify-content: space-evenly;
-}
-.p10 {
-    padding: 10px;
-}
-.relative {
-    position: relative;
-}
-.absolute {
-    position: absolute;
-}
-.p-20 {
-    padding: 20px;
-}
-.p-25 {
-    padding: 30px;
-}
-.mar10 {
-    margin: 10px;
-}
-.mar15 {
-    margin: 15px;
-}
-.m20 {
-    margin: 20px;
-}
-.grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-}
-.trailer {
-    background-color: rgb(44, 44, 43);
-    border-radius: 15px;
-    height: 30px;
-    width: fit-content;
-}
-.trailer .playtrailor {
-    height: 30px;
-}
-.trailer .date {
-    margin: 0;
+body {
+    background-color: #141413;
 }
 
-@media screen and (max-width: 1100px) {
-    .grid {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-    }
-}
-
-@media screen and (max-width: 800px) {
-    .grid {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-@media screen and (max-width: 550px) {
-    .grid {
-        display: grid;
-        grid-template-columns: repeat(1, 1fr);
-    }
-}
-/*******************************************************
-HEADER
-*******************************************************/
-
+/*******************************
+*******Header
+*********************************/
 header {
     position: relative;
 }
-header .navbar {
+.main-image img {
     width: 100%;
-    height: 70px;
+    /* height: 650px; */
+    
+}
+/* @media only screen and (max-width: 600px) {
+header nav {background-color: rebeccapurple;width: 500px;display: block;position:absolute;}
+header .logo img{border: 2px solid #141413; width: 50px;position:absolute;}
+header .right-nav { display:block;}
+header .right-nav .search{ display: none;}
+header .right-nav .search input{display: none;}
+header .right-nav .search img{display: none;}
+} */
+header nav {
     position: absolute;
-    border-bottom: 1px solid rgb(248, 244, 244, 0.6);
-    z-index: 3;
+    top: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    border-bottom: 2px solid #fff;
 }
 header .logo img {
-    height: 50px;
-    padding: 10px;
+    width: 7rem;
+    padding: 1rem 2rem;
 }
-header .smenu {
-    text-align: center;
+header .right-nav {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    padding: 1rem 2rem;
 }
-.searcharea {
+header .right-nav .search {
     position: relative;
-    width: fit-content;
-    padding: 3px;
 }
-.searcharea img {
+header .right-nav .search input {
+    padding: 0.7rem 2.5rem;
+    background-color: transparent;
+    border: 1px solid #fff;
+    border-radius: 0.7rem;
+}
+header .right-nav .search img {
     position: absolute;
+    right: 0.7rem;
+    top: 0.2rem;
+    width: 2.5rem;
+  
+}
+header .watch-now {
+    position: absolute;
+    bottom: 3rem;
+    left: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2rem;
+    width: 30%;
+    color: #fff;
+}
+header .watch-now .trailer {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+header .watch-now .trailer img {
+    width: 10rem;
+}
+/*******************************
+*******Main
+*********************************/
+main {
+    background-color: #141413;
+}
+
+/*  feature is in the action page  */
+main .heading,
+.feature .heading {
+    padding: 2rem 3rem;
+    color: #fff;
+}
+main .movie-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    margin: 2rem 2rem;
+    gap: 1rem;
+}
+main .movie-container .movie {
+    position: relative;
+}
+main .movie-container .movie .image {
+    width: 100%;
+}
+main .movie-container .movie .image img {
+    width: 100%;
+    
+}
+main .movie-container .movie .like {
+    position: absolute;
+    top: 0;
     right: 0;
-    width: 25px;
-    padding: 4px;
-}
-.searcharea input {
-    background-color: rgb(0, 0, 0, 0);
-    width: 200px;
+  
+    width:40px;
     height: 30px;
-    border-radius: 10px;
-    border: 1px solid rgb(224, 224, 224);
 }
-header .smenu .category img {
-    width: 35px;
+main .movie-container .movie .like img , .feature .coming-soon .movie .like img{
+   
+    width: 30px;
+     height: 30px;
+    padding: 0.3rem;
+    padding-right:0;
 }
-header .smenu .favs img {
-    width: 15px;
+main .movie-container .movie .name {
+    color: #fff;
 }
-header .menu2 {
-    display: none;
-}
-header .logo {
-    display: none;
-}
-.search2 {
-    display: none;
-}
-.searchpop {
-    position: absolute;
-    top: 0px;
-    right: -60px;
-}
-.togmenu {
-    position: absolute;
-    top: 70px;
-    left: 0;
-    background-color: rgb(0, 0, 0, 0.9);
-    border-bottom-right-radius: 20px;
-}
-@media screen and (max-width: 800px) {
-    header .smenu {
-        display: none;
-    }
-    header .logo {
-        display: none;
-    }
-    header .menu2 {
-        margin: 10px;
-        height: 50px;
-        display: block;
-    }
-    header .menu2.down {
-        transform: rotate(90deg);
-    }
-    header .logo {
-        display: block;
-        height: 50px;
-        margin: 10px;
-    }
-    .search2 {
-        display: block;
-        margin: 20px;
-        width: 30px;
-    }
-}
-
-/*******************************************************
-Cover
-*******************************************************/
-
-.cover {
+main .movie-container .movie .info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     width: 100%;
-    height: 90%;
 }
-.cover .sp-backgroundcover {
-    display: none;
+main .movie-container .movie .info .rating {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #fff;
 }
-.cover .backgroundcover {
-    width: 100%;
-    height: 90vh;
-    object-fit: cover;
-}
-.cover .gradient {
-    background: linear-gradient(rgb(41, 40, 40, 0.6) 10%, rgb(0, 0, 0, 0) 50%, rgb(41, 40, 40));
+.watch-now {
     position: absolute;
-    height: 90%;
-    width: 100%;
-    z-index: 2;
+    bottom: 3rem;
+    left: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2rem;
+    width: 30%;
+    color: #fff;
 }
-.cover .gradient .coverdetails {
-    position: absolute;
-    bottom: 0;
-}
-.cover .gradient .coverdetails .trailer {
-    background-color: rgb(20, 20, 19);
-    height: 35px;
-    border-radius: 20px;
-}
-.cover .gradient .trailer img {
-    height: 35px;
-}
-.cover .gradient .coverdetails .cover-description {
-    width: 60%;
-}
-.cover .gradient .coverdetails .date {
-    font-size: 20px;
-    margin: 0;
-}
-.cover .gradient .coverdetails .cover-description {
-    color: rgb(224, 224, 224, 0.8);
-}
+.watch-now img {
+    width: 150px;
 
-@media screen and (max-width: 1024px) and (max-height: 600px) {
-    .cover .backgroundcover {
-        width: 100%;
-        object-fit: cover;
-    }
-    .cover .gradient {
-        background: linear-gradient(rgba(41, 40, 40, 0.6) 10%, transparent 50%, #292828);
-        position: absolute;
-        width: 100%;
-        z-index: 2;
-    }
+    float: left;
 }
-
-@media screen and (min-width: 1023px) and (min-height: 1366px) {
-    .cover .backgroundcover {
-        width: 100%;
-        height: 46vh;
-        object-fit: cover;
-    }
-    .cover .gradient {
-        background: linear-gradient(rgb(41, 40, 40, 0.6) 10%, rgb(0, 0, 0, 0) 50%, rgb(41, 40, 40));
-        position: absolute;
-        height: 46%;
-        width: 100%;
-        z-index: 2;
-    }
-}
-
-@media screen and (max-width: 800px) {
-    .cover {
-        height: 105vh;
-    }
-    .cover .backgroundcover {
-        display: none;
-    }
-    .cover .sp-backgroundcover {
-        display: block;
-        width: 100%;
-        height: 90vh;
-        object-fit: cover;
-    }
-    .sp-coverdetails {
-        flex-direction: column;
-        width: fit-content;
-        margin: auto;
-        text-align: center;
-    }
-    .cover .gradient .coverdetails .cover-description {
-        width: 100%;
-    }
-    .cover .gradient .coverdetails {
-        top: 75vh;
-    }
-}
-
-@media screen and (min-width: 719px) and (min-height: 540px) {
-    .cover .gradient .coverdetails .trailer {
-        background-color: #141413;
-        height: 35px;
-        border-radius: 20px;
-        margin-top: -21px;
-    }
-}
-
-
-
-@media screen and (max-width: 360px) {
-    .cover .gradient .coverdetails {
-        top: 72vh;
-    }
-}
-
-@media screen and (max-width: 320px) {
-    .cover .gradient .coverdetails {
-        top: 70vh;
-    }
-
-    .cover {
-        width: 103%;
-    }
-    .cover .gradient {
-        background: linear-gradient(rgba(41, 40, 40, 0.6) 10%, transparent 50%, #292828);
-        position: absolute;
-        width: 103%;
-        z-index: 2;
-    }
-}
-
-@media screen and (max-width: 280px) {
-    .content .section-heading {
-        font-size: 30px;
-        margin-top: 50px;
-    }
-    .cover .gradient .coverdetails .date {
-        font-size: 20px;
-        margin: 0;
-        margin-top: -13px;
-    }
-    .cover .gradient .coverdetails {
-        top: 74vh;
-    }
-    .cover {
-        width: 107%;
-    }
-    .cover .gradient {
-        background: linear-gradient(rgba(41, 40, 40, 0.6) 10%, transparent 50%, #292828);
-        position: absolute;
-        width: 107%;
-        z-index: 2;
-    }
-}
-
-/*******************************************************
-Content
-*******************************************************/
-.content {
-    min-height: 80vh;
-}
-.content .section-heading {
-    font-size: 30px;
-}
-.content .pt {
-    padding-top: 70px;
-}
-.content .moviebox {
+.watch-now p {
     position: relative;
-    height: 450px;
-    width: 250px;
-    margin: 30px auto;
+    float: right;
+    top: -2px;
+    left: 20px;
+    color: #4b4b45;
 }
-.content .moviebox .favit {
-    position: absolute;
-    right: 10px;
+.watch-now .movie-text {
+    position: relative;
+    float: left;
+    left: 0px;
+}
+.rating p {
+    color: rgb(237, 243, 238);
+    position: relative;
+    float: right;
     top: 10px;
 }
-.content .moviebox .favit img {
-    width: 40px;
-}
-.content .moviebox .movieposter {
-    height: 80%;
-    width: 100%;
-    object-fit: cover;
-}
-.content .moviebox .moviedeets .darken {
-    color: rgb(224, 224, 224, 0.5);
-}
-.content .moviebox .moviedeets .btn-text {
-    padding: 7px 20px;
-}
-.content .divider {
-    margin: 60px auto;
-    border: none;
-    border-top: 1px solid rgb(224, 218, 218, 0.3);
-    width: 60%;
-}
-@media screen and (max-width: 1100px) {
-}
-
-/*******************************************************
-Footer
-*******************************************************/
-
-footer {
-    margin-top: 100px;
-}
-footer img {
-    height: 40px;
-}
-
-/*******************************************************
-Popupbox
-*******************************************************/
-
-.popupbox {
-    position: fixed;
-    background-color: rgba(250, 242, 242, 0.5);
-    left: 0;
-    right: 0;
-    z-index: 4;
-    height: 100%;
-}
-.popupbox .popup {
+.line {
+    width: 50%;
+    align-items: center;
     position: relative;
+    border: 1px solid #423d39;
+    margin: 0 auto;
+    margin-bottom: -11%;
+}
+.coming-soon {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    margin: 2rem 2rem;
+    gap: 1rem;
+    background-color: #141413;
+}
+.coming-soon .movie {
+    position: relative;
+}
+.coming-soon .movie .image {
     width: 100%;
-    height: 100%;
 }
-.popupbox .box {
-    position: absolute;
-    top: 40px;
-    width: 84%;
-    left: 8%;
-    height: 80%;
-}
-.popupbox .popup .box .coverimage {
+.coming-soon .movie .image img {
     width: 100%;
-    height: 100%;
-    object-fit: cover;
 }
-.popupbox .popup .close {
+.coming-soon .movie .like {
     position: absolute;
-    top: 15px;
-    right: 15px;
-    height: 30px;
+    top: 0;
+    right: 0;
 }
-.popupbox .popup .popup-content {
-    position: absolute;
-    bottom: 0;
+.coming-soon .movie .like img {
+    padding: 2px;
+}
+.coming-soon .movie .info {
+    display: flex;
+    color: #fff;
+    justify-content: space-between;
+    align-items: center;
     width: 100%;
-    height: 30%;
-    background: linear-gradient(rgb(0, 0, 0, 0), rgb(0, 0, 0, 1));
+    display: inline-flex;
 }
+.coming-soon .movie .info .name {
+    display: flex;
+    gap: 15px;
+}
+footer .logo {
+    border-top: 2px solid #423d39;
 
-@media screen and (max-width: 500x) {
-    p {
-        font-size: 11px;
-    }
+    width: 95%;
+    align-items: center;
+    margin-left: 30px;
+    padding: 5px;
+}
+/* Action page */
+.feature .heading {
+    padding-top: 15%;
+}
+/* Favorites page */
+.favorites {
+    padding-top: 10%;
+}
+.feature .no_favourite {
+    color: rgb(236, 231, 231);
+    /* border: 1px solid red; */
+    left: 30px;
+    position: relative;
+}
+.movie .name {
+    color: #fff;
+}
+.search .feature .movie .image img {
+    width: 200px;
+    height: 300px;
 }

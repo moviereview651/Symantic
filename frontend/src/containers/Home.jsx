@@ -1,30 +1,43 @@
-import React, { useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
-import Footer from '../components/common/Footer';
+import React, { useEffect, useState } from "react";
+import Manibanner from "../assets/img/banner.png"
 import Header from '../components/common/Header';
-import ImgCover from '../assets/img/coverimage.png';
-import ImgButton from '../assets/img/button1.png';
-import Imgbutton from '../assets/img/sp-cover.png';
+import Footer from '../components/common/Footer';
+import Movie from "../components/common/Movie";
 import { getMovies } from '../reducks/movies/selectors';
-import queryString from 'query-string';
-import API from '../API';
-import Card from '../components/common/Card';
+import watch from "../assets/img/watch-now.svg"
+import { useSelector } from 'react-redux';
+
+import API from "../API";
 const api = new API();
+
+
 const Home = () => {
-    const parsed = queryString.parse(window.location.search);
     const [moviesComingSoon, setMoviesCommingSoon] = useState(null);
     const [moviesNewReleased, setMoviesNewReleased] = useState(null);
     const selector = useSelector(state => state);
     const movies = getMovies(selector);
+     const [showplay, setShowPlay] =useState(false);
+     const [seMovie, setseMovie] = useState();
 
-    useEffect(() => {
+const play =(movie)=>{
+  console.log(" play the movie : ", movie)
+  setseMovie(movie)
+  setShowPlay(true)
+}
+
+
+        useEffect(() => {
+            console.log("coming soon");
         api.getMovies({ release_type: 'Coming Soon'})
+             
             .then(movies => {
+                
                 setMoviesCommingSoon(movies);
             })
             .catch(error => {
                 alert('Failed to connect API: /movies/');
             });
+            console.log("Newly Released");
         api.getMovies({ release_type: 'Newly Released' })
             .then(movies => {
                 setMoviesNewReleased(movies);
@@ -33,66 +46,84 @@ const Home = () => {
                 alert('Failed to connect API: /movies/');
             });
     }, []);
+   
     return (
-        <>
-            <Header />
-            <section class="cover">
-                <div class="gradient">
-                    <div class="coverdetails m-25">
-                        <div class="row sp-coverdetails">
-                            <div class="trailer mar10 row">
-                                <img src={ImgButton} alt="" />
-                                <div class="p10">Watch Trailer</div>
-                            </div>
-                            <div class="mar10">
-                                <p class="date">October 1st</p>
-                                In cinemas
-                            </div>
-                        </div>
-                        <div class="cover-description mar10">
-                            <p>
-                                James Bond has left active service. His peace is short-lived when Felix Leiter, an old
-                                friend from the CIA, turns up asking for help, leading Bond onto the trail of a
-                                mysterious villain armed with dangerous new technology.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <img src={ImgCover} alt="" class="backgroundcover" />
-                <img src={Imgbutton} class="sp-backgroundcover" alt="" />
-            </section>
-            <section class="content">
-                <h1 class="section-heading m20 p10">Newly Released</h1>
-                {moviesNewReleased && moviesNewReleased.results.length > 0 ? (
-                    <div class="grid">
-                        {moviesNewReleased.results.map(movie => (
-                            <Card movie={movie} />
-                        ))}
-                    </div>
-                ) : (
-                    <div class="no-post">
-                        <p>No movies here yet...</p>
-                    </div>
-                )}
+        <div className="home">
+           
+            <Header/>
+              <div class="main-image">
+                
+                  {/* {showplay && true?(<img src={showplay.img} alt="banner" />
+                  ):(<img src={Manibanner} alt="banner" />) } */}
+                  {/* <img src={Manibanner} alt="banner" /> */}
 
-                <hr class="divider" />
+                  {showplay ?(console.log(" the movie name is :", seMovie.name),
+                  <img src={seMovie.image} alt="banner" />):(<img src={Manibanner} alt="banner" />)}
+        
+      </div>
 
-                <h1 class="section-heading m20 ">Coming Soon</h1>
-                {moviesComingSoon && moviesComingSoon.results.length > 0 ? (
-                    <div class="grid">
-                        {moviesComingSoon.results.map(movie => (
-                            <Card movie={movie} />
+      <div class="watch-now">
+        <div class="trailer">
+          <img src={watch }alt="play-button" />
+          <p>
+             <br />
+            in cinemas
+          </p>
+        </div>
+        <div class="movie-text">
+          
+             <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum
+            provident modi vitae quibusdam doloremque veritatis dolorem
+            nesciunt, quidem accusantium est. Libero odit, molestias eum magni
+            dolore aliquid animi eos numquam.
+          </p>
+         
+        </div>
+      </div>
+
+
+            <main>
+                <div class="heading">
+                    <h2>Newly Released</h2></div>
+                
+                   {moviesNewReleased && moviesNewReleased.results.length >0 ?(
+                       <section class="movie-container">
+                       {moviesNewReleased.results.map(movie => (
+                            <Movie movie={movie} play={()=>play(movie)} />
                         ))}
-                    </div>
-                ) : (
-                    <div class="no-post">
-                        <p>No movies here yet...</p>
-                    </div>
-                )}
-            </section>
+                      
+                      </section>
+             
+          ):(console.log("no movie"))}
+
+
+                
+            </main>
+             <div class="feature">
+      <hr class="line" />
+      <div class="heading"><h2>Coming Soon</h2></div>
+      
+          {moviesComingSoon && moviesComingSoon.results.length >0 ?(
+              <section class="coming-soon">
+
+              {
+                  moviesComingSoon.results.map(movie =>(<Movie movie={movie} play={()=>play(movie)} />) )
+              }
+              </section>
+          ):(console.log("no movie"))}
+
+          
+
+      
+      </div>
+
+            
             <Footer />
-        </>
+        </div>
     );
+
+   
 };
 
 export default Home;

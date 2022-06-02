@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="67.757" height="33.795" viewBox="0 0 67.757 33.795">
+  <g id="Group_90" data-name="Group 90" transform="translate(-49 -5.682)">
+    <text id="SYNAMATIC" transform="translate(49 36.477)" fill="#e0e0e0" font-size="11" font-family="Helvetica" letter-spacing="0.03em"><tspan x="0" y="0">SYNAMATIC</tspan></text>
+    <g id="Group_89" data-name="Group 89" transform="translate(57 5.682)">
+      <g id="Group_1" data-name="Group 1" transform="translate(14.833 1.311)">
+        <ellipse id="Ellipse_2" data-name="Ellipse 2" cx="6.72" cy="6.884" rx="6.72" ry="6.884" fill="#0303f8" opacity="0.8"/>
+        <circle id="Ellipse_5" data-name="Ellipse 5" cx="6.884" cy="6.884" r="6.884" transform="translate(15.079)" fill="#f80202" opacity="0.8"/>
+      </g>
+      <g id="Group_2" data-name="Group 2" transform="translate(12.539 0)">
+        <g id="Ellipse_2-2" data-name="Ellipse 2" transform="translate(0)" fill="none" stroke="#faf8f8" stroke-width="1" opacity="0.8">
+          <ellipse cx="7.867" cy="8.031" rx="7.867" ry="8.031" stroke="none"/>
+          <ellipse cx="7.867" cy="8.031" rx="7.367" ry="7.531" fill="none"/>
+        </g>
+        <g id="Ellipse_5-2" data-name="Ellipse 5" transform="translate(17.701)" fill="none" stroke="#faf8f8" stroke-width="1" opacity="0.8">
+          <ellipse cx="8.031" cy="8.031" rx="8.031" ry="8.031" stroke="none"/>
+          <ellipse cx="8.031" cy="8.031" rx="7.531" ry="7.531" fill="none"/>
+        </g>
+      </g>
+      <path id="Path_2" data-name="Path 2" d="M0,0H13.44" transform="translate(45.86 7.376) rotate(7)" fill="none" stroke="#d2d1d2" stroke-linecap="round" stroke-width="1"/>
+      <path id="Path_7" data-name="Path 7" d="M0,0H13.44" transform="translate(0 9.014) rotate(-7)" fill="none" stroke="#d2d1d2" stroke-linecap="round" stroke-width="1"/>
+    </g>
+  </g>
+</svg>

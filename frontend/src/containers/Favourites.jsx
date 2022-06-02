@@ -2,9 +2,10 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getFavourites } from '../reducks/favourites/selectors';
 import { fetchFromLocalStorage } from '../reducks/favourites/operations';
-import FavCard from '../components/common/FavCard';
-import Footer from '../components/common/Footer';
 import Header from '../components/common/Header';
+import Footer from '../components/common/Footer';
+import FavCard from '../components/common/FavCard';
+import Movie from '../components/common/Movie';
 
 const Favourites = () => {
     const dispatch = useDispatch();
@@ -14,15 +15,28 @@ const Favourites = () => {
     useEffect(() => {
         dispatch(fetchFromLocalStorage());
     }, []);
+
     return (
         <>
             <Header />
-            <section class="content">
-                <div class="pt">
-                    <h1 class="section-heading m20 p10">Favorites</h1>
+
+            <div class="feature">
+                <div className="heading">
+                    <h2>Favorites</h2>
                 </div>
-                <div class="grid">{favourites && favourites.map(favourite => <FavCard favourite={favourite} />)}</div>
-            </section>
+                <div calss="favourite">
+                    {favourites.length >0 && true? (<section class="coming-soon">
+          
+           { favourites.map(favourite =>(<FavCard favourite={favourite}/>))}
+            </section> 
+          ):(
+            <p className='no_favourite'>No Favourite movies here yet...</p>
+          )}      
+
+                    {/* {favourites && favourites.map(favourite => <FavCard favourite={favourite} />)} */}
+                </div>
+            </div>
+
             <Footer />
         </>
     );

@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="90" height="34" viewBox="0 0 90 34">
+  <g id="Group_123" data-name="Group 123" transform="translate(-84 -2112)">
+    <text id="_4.5" data-name="4.5" transform="translate(118 2141)" fill="#e0e0e0" font-size="20" font-family="Helvetica" letter-spacing="0.03em"><tspan x="0" y="0">4.5</tspan></text>
+    <text id="_5" data-name="/5" transform="translate(156 2141)" fill="#e0e0e0" font-size="20" font-family="Helvetica" letter-spacing="0.03em" opacity="0.496"><tspan x="0" y="0">/5</tspan></text>
+    <g id="star_rate_white_24dp" transform="translate(84 2112)">
+      <rect id="Rectangle_7" data-name="Rectangle 7" width="34" height="34" transform="translate(0 0)" fill="none"/>
+      <path id="Path_6" data-name="Path 6" d="M16.167,11.761,17.5,16.167h4l-3.216,2.3,1.318,4.264-3.428-2.607-3.428,2.607,1.318-4.264L10.84,16.167h3.995l1.332-4.406m0-9.761L12.738,13.333H2l8.741,6.247L7.426,30.333l8.741-6.644,8.755,6.644L21.592,19.581l8.741-6.247H19.595L16.167,2Z" transform="translate(0.833 0.833)" fill="#fff505"/>
+    </g>
+  </g>
+</svg>

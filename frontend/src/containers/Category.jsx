@@ -1,18 +1,29 @@
+
+
 import React, { useEffect, useState } from 'react';
+
 import API from '../API';
-import Card from '../components/common/Card';
-import Footer from '../components/common/Footer';
-import Header from '../components/common/Header';
+import Header from '../components/common/Header'
+import Footer from '../components/common/Footer'
+import Movie from '../components/common/Movie';
 const api = new API();
 const Category = () => {
-    const [categoryAction, setCategoryAction] = useState(null);
+      const [categoryAction, setCategoryAction] = useState(null);
     const [categoryComedy, setCategoryComedy] = useState(null);
     const [categoryDrama, setCategoryDrama] = useState(null);
     const [categoryHorror, setCategoryHorror] = useState(null);
     useEffect(() => {
+      
         api.getMovies({ category_id: '1' })
             .then(movies => {
                 setCategoryAction(movies);
+            })
+            .catch(error => {
+                alert('Failed to connect API: /movies/');
+            });
+            api.getMovies({ category_id: '3' })
+            .then(movies => {
+                setCategoryDrama(movies);
             })
             .catch(error => {
                 alert('Failed to connect API: /movies/');
@@ -23,15 +34,8 @@ const Category = () => {
             })
             .catch(error => {
                 alert('Failed to connect API: /movies/');
-            });
+            });        
         api.getMovies({ category_id: '4' })
-            .then(movies => {
-                setCategoryDrama(movies);
-            })
-            .catch(error => {
-                alert('Failed to connect API: /movies/');
-            });
-        api.getMovies({ category_id: '3' })
             .then(movies => {
                 setCategoryHorror(movies);
             })
@@ -39,77 +43,61 @@ const Category = () => {
                 alert('Failed to connect API: /movies/');
             });
     }, []);
-    return (
-        <>
-            <Header />
-            <section class="content">
-                <div class="pt">
-                    <h1 id="actions" class="section-heading m20 p10">
-                        Action
-                    </h1>
-                </div>
-                {categoryAction && categoryAction.results.length > 0 ? (
-                    <div class="grid">
-                        {categoryAction.results.map(movie => (
-                            <Card movie={movie} />
-                        ))}
-                    </div>
-                ) : (
-                    <div class="no-post">
-                        <p>No movies here yet...</p>
-                    </div>
-                )}
-                <hr class="divider" />
-                <h1 id="comedy" class="section-heading m20">
-                    Comedy
-                </h1>
-                {categoryComedy && categoryComedy.results.length > 0 ? (
-                    <div class="grid">
-                        {categoryComedy.results.map(movie => (
-                            <Card movie={movie} />
-                        ))}
-                    </div>
-                ) : (
-                    <div class="no-post">
-                        <p>No movies here yet...</p>
-                    </div>
-                )}
-                <hr class="divider" />
-                <h1 id="drama" class="section-heading m20">
-                    Drama
-                </h1>
-                {categoryDrama && categoryDrama.results.length > 0 ? (
-                    <div class="grid">
-                        {categoryDrama.results.map(movie => (
-                            <Card movie={movie} />
-                        ))}
-                    </div>
-                ) : (
-                    <div class="no-post">
-                        <p>No movies here yet...</p>
-                    </div>
-                )}
 
-                <hr class="divider" />
-                <h1 id="horror" class="section-heading m20">
-                    Horror
-                </h1>
+  return (
+    <>
+    <Header/>
+        <div class="feature">
+      <div class="heading">
+        <h2>Action</h2></div>
+        
+          {categoryAction && categoryAction.results.length >0 ?
+          (<section class="coming-soon">
+            {categoryAction.results.map(movie =>(<Movie movie={movie}/>))}
+            </section> 
+          ):(
+            <p>No movies here yet...</p>
+          )}
 
-                {categoryHorror && categoryHorror.results.length > 0 ? (
-                    <div class="grid">
-                        {categoryHorror.results.map(movie => (
-                            <Card movie={movie} />
-                        ))}
-                    </div>
-                ) : (
-                    <div class="no-post">
-                        <p>No movies here yet...</p>
-                    </div>
-                )}
-            </section>
-            <Footer />
-        </>
-    );
-};
 
-export default Category;
+           
+      </div>
+        <div class="feature">
+      <hr class="line" />
+      <div class="heading"><h2>Comedy</h2></div>
+      {categoryComedy && categoryComedy.results.length >0 ?
+          (<section class="coming-soon">
+            {categoryComedy.results.map(movie =>(<Movie movie={movie}/>))}
+            </section> 
+          ):(
+            <p className='no_favourite'>No movies here yet...</p>
+          )}
+      </div>
+       <div class="feature">
+      <hr class="line" />
+      <div class="heading"><h2>Drama</h2></div>
+      {categoryDrama && categoryDrama.results.length >0 ?
+          (<section class="coming-soon">
+            {categoryDrama.results.map(movie =>(<Movie movie={movie}/>))}
+            </section> 
+          ):(
+            <p className='no_favourite'>No movies here yet...</p>
+          )}</div>
+          <div class="feature">
+      <hr class="line" />
+      <div class="heading"><h2>Horror</h2></div>
+      {categoryHorror && categoryHorror.results.length >0 ?
+          (<section class="coming-soon">
+            {categoryHorror.results.map(movie =>(<Movie movie={movie}/>))}
+            </section> 
+          ):(
+            <div ><p className='no_favourite'>No movies here yet...</p></div>
+          )}</div>
+
+    <Footer/>
+    
+    </>
+  )
+}
+
+export default Category

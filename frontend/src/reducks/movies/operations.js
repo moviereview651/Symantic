@@ -3,6 +3,7 @@ import { fetchMoviesAction } from './actions';
 const api = new API();
 
 export const fetchMovies = params => {
+     console.log('the params from operation is :', params);
     return async dispatch => {
         return api
             .getMovies(params)
